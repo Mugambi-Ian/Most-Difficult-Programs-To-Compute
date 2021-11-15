@@ -1,11 +1,3 @@
-var fs = require("fs");
-var util = require("util");
-var log_file = fs.createWriteStream(__dirname + "/debug.log", { flags: "w" });
-var log_stdout = process.stdout;
-const log = function (d) {
-  log_file.write(util.format(d) + "\n");
-  log_stdout.write(util.format(d) + "\n");
-};
 
 function factorial(n) {
   if (n === 1) return n;
@@ -17,10 +9,10 @@ function factiter(n) {
   for (let i = n; i > 0; i++) {
     ans = ans * i;
     const x = new Date().getTime();
-    log(x + ":" + ans);
+    console.log(x + ":" + ans);
   }
   return ans;
 }
 
-console.log("Factorial 4 recursive is " + factorial(4));
-console.log("Factorial 4 iterative is " + factiter(4));
+console.log("Factorial 10 recursive is " + factorial(10));
+console.log("Factorial 10 iterative is " + factiter(10));
